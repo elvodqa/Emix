@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emix", "Emix\Emix.csproj", "{80D81AD4-A1CE-40E3-B581-2F1FEFB0BCCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emix.Tests", "Emix.Tests\Emix.Tests.csproj", "{D0FC4A2D-98E3-45C8-8087-FA3BD559031E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80D81AD4-A1CE-40E3-B581-2F1FEFB0BCCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80D81AD4-A1CE-40E3-B581-2F1FEFB0BCCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80D81AD4-A1CE-40E3-B581-2F1FEFB0BCCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80D81AD4-A1CE-40E3-B581-2F1FEFB0BCCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0FC4A2D-98E3-45C8-8087-FA3BD559031E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0FC4A2D-98E3-45C8-8087-FA3BD559031E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0FC4A2D-98E3-45C8-8087-FA3BD559031E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0FC4A2D-98E3-45C8-8087-FA3BD559031E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
