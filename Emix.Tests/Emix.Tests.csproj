@@ -13,5 +13,11 @@
     <ItemGroup>
       <ProjectReference Include="..\Emix\Emix.csproj" />
     </ItemGroup>
+    
+    <ItemGroup>
+        <Content Include="Resources/**">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
 
 </Project>
