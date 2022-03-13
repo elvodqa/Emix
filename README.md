@@ -4,9 +4,11 @@ An Another Virtual Novel Engine but powered by .NET
 
 ## TODOS
 
-[WIP] GUI
-[TODO] Basic infrastructure
-[TODO] Release the 0.1v
+<p>
+[WIP] GUI <br>
+[TODO] Basic infrastructure <br>
+[TODO] Release the 0.1v <br>
+</p>
 
 ## Usage
 
