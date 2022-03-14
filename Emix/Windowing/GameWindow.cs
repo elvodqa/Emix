@@ -6,25 +6,25 @@ using SFML.Window;
 
 namespace Emix.Windowing
 {
-    public abstract class GameWindow : RenderWindow
+    public class GameWindow : RenderWindow
     {
         #region Public Properties
 
         [DefaultValue(false)]
-        public abstract bool AllowUserResizing
+        public bool AllowUserResizing
         { 
             get;
             set;
         }
 
         [DefaultValue(typeof(Rectangle), "800, 600")]
-        public abstract Rectangle ClientBounds
+        public Rectangle ClientBounds
         {
             get;
         }
         
         [DefaultValue("Emix Game")]
-        public abstract string ScreenDeviceName
+        public string ScreenDeviceName
         {
             get;
         }
@@ -111,9 +111,12 @@ namespace Emix.Windowing
                 ScreenDeviceNameChanged(this, EventArgs.Empty);
             }
         }
-        
 
-        protected abstract void SetTitle(string title);
+
+        protected void SetTitle(string title)
+        {
+            Title = title;
+        }
 
         #endregion
     }

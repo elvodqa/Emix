@@ -9,22 +9,13 @@ using Drawable = Emix.Graphics.Drawable;
 
 namespace Emix
 {
-    public class EmixScene : IDisposable    
+    public abstract class EmixScene : IDisposable    
     {
 
         #region Public Properties
-        public GameComponentCollection Components
-        {
-            get;
-            private set;
-        }
-        
-        public GameWindow Window
-        {
-            get;
-            private set;
-        } 
-       
+
+
+        public GameWindow Window;
 
         #endregion
         
@@ -60,8 +51,8 @@ namespace Emix
         {
             RunApplication = true;
             Window = (GameWindow) new RenderWindow(
-	            new VideoMode((uint) Window.ClientBounds.Size.X, (uint) Window.ClientBounds.Size.Y), 
-	            Window.Title);
+	            new VideoMode( 800, 600), 
+	            "asd");
         }
         
         #endregion
@@ -94,6 +85,7 @@ namespace Emix
                 if (disposing)
                 {
                     // Dispose loaded game components.
+                    /*
                     for (int i = 0; i < Components.Count; i += 1)
                     {
                         IDisposable disposable = Components[i] as IDisposable;
@@ -101,7 +93,7 @@ namespace Emix
                         {
                             disposable.Dispose();
                         }
-                    }
+                    } */
 
                     if (Window != null)
                     {
@@ -138,19 +130,14 @@ namespace Emix
         
 		protected virtual void Initialize()
 		{
-			Components = new GameComponentCollection();
 			
-			for (int i = 0; i < Components.Count; i += 1)
-			{
-				Components[i].Initialize();
-			}
 			
 		}
 		
 		protected virtual void Update(GameTime gameTime)
 		{
 			
-			Window.Clear();
+			Window.Clear(Color.Black);
 			Update(gameTime);
 			Window.Display();
 		}
