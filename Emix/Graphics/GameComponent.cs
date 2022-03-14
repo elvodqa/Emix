@@ -24,6 +24,7 @@ namespace Emix.Graphics
         public int CompareTo(GameComponent? other)
         {
             //throw new NotImplementedException();
+            return 31;
         }
         
         protected virtual void Dispose(bool disposing)
