@@ -6,8 +6,8 @@ An Another Virtual Novel Engine but powered by .NET
 
 <p>
 [WIP] GUI <br>
-[TODO] Basic infrastructure <br>
-[TODO] Release the 0.1v <br>
+[WIP] Basic infrastructure <br>
+[HOPEFULLY] Release the 0.1v <br>
 </p>
 
 ## Usage
