@@ -53,8 +53,15 @@ namespace Emix.Graphics.GUI
             if (Focus)
             {
        
-                Text.DisplayedString += e.Unicode;
                 
+                if (e.Unicode == "\b" && Text.DisplayedString.Length > 0)
+                {
+                    Text.DisplayedString = Text.DisplayedString.Remove(Text.DisplayedString.Length - 1);
+                }
+                else
+                {
+                    Text.DisplayedString += e.Unicode;
+                }
             }
         }   
         
