@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Emix.Graphics;
 using Emix.Graphics.GUI;
 using Emix.Windowing;
@@ -41,13 +42,12 @@ namespace Emix.Tests
             };
             mainMenu = new Canvas()
             {
-                playButton,
-                exitButton,
-                settingsButton,
-                loadButton,
                 new Drawable(new Texture("Resources/pre-small.png"))
             };
-            
+            mainMenu.UIButtonLayer.Add(loadButton);
+            mainMenu.UIButtonLayer.Add(playButton);
+            mainMenu.UIButtonLayer.Add(settingsButton);
+            mainMenu.UIButtonLayer.Add(exitButton);
             
             
             

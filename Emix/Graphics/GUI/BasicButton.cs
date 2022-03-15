@@ -6,7 +6,7 @@ using SFML.Window;
 
 namespace Emix.Graphics.GUI
 {
-    public class BasicButton : Drawable
+    public class BasicButton : UIElement
     {
         public event EventHandler<EventArgs> Clicked;
 

@@ -6,11 +6,17 @@ namespace Emix.Graphics.GUI
 {
     public class Canvas : List<Drawable>
     {
+        public List<BasicButton> UIButtonLayer { get; set; } = new List<BasicButton>();
         public void Draw(GameWindow window)
         {
             foreach (Drawable element in this)
             {
-                if (window != null) element.Draw(window, RenderStates.Default);
+                element.Draw(window);
+            }
+
+            foreach (var uiElement in UIButtonLayer)
+            {
+                uiElement.Draw(window);
             }
         }
     }
