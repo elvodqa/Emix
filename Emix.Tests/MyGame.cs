@@ -17,6 +17,7 @@ namespace Emix.Tests
         public MyGame()
         {
             Window = new GameWindow("Emix: Visual Novel Engine");
+            DebugInfo = true;
         }
         protected override void Initialize()
         {
@@ -33,14 +34,14 @@ namespace Emix.Tests
             base.Initialize();
         }
 
-        protected override void Update(GameTime gameTime)
+        protected override void Update()
         {
             newButton.Draw(Window);
             exitButton.Draw(Window);
             settingsButton.Draw(Window);
             loadButton.Draw(Window);
             
-            base.Update(gameTime);
+            base.Update();
         }
     }
 }

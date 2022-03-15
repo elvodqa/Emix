@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Emix.Graphics;
 using Emix.Windowing;
 using SFML.Graphics;
+using SFML.System;
 using SFML.Window;
 using Drawable = Emix.Graphics.Drawable;
 
@@ -16,6 +17,8 @@ namespace Emix
 
 		
         public GameWindow Window;
+        public GameTime GameTime;
+        public bool DebugInfo = false;
 
         #endregion
         
@@ -26,6 +29,10 @@ namespace Emix
         private bool hasInitialized;
         private bool suppressDraw;
         private readonly GameTime gameTime;
+        private Clock clock;
+        private float lastTime = 0;
+        private Font font = new Font("Resources/arial.ttf");
+        private Text cursorPositionText;
         
         #endregion
         
@@ -51,6 +58,8 @@ namespace Emix
         {
 	        //Window = window;
             RunApplication = true;
+            clock = new Clock();
+            GameTime = new GameTime(Time.Zero, Time.Zero);
         }
         
         private void OnClosed(object sender, EventArgs e)
@@ -134,13 +143,23 @@ namespace Emix
         
 		protected virtual void Initialize()
 		{
-			
-			
+			cursorPositionText = new Text($"{Mouse.GetPosition(Window).X}:{Mouse.GetPosition(Window).Y}", font, 12);
+			cursorPositionText.Position = new Vector2f(0 , Window.Size.Y - (cursorPositionText.GetLocalBounds().Height * 2));
 		}
 		
-		protected virtual void Update(GameTime gameTime)
+		protected virtual void Update()
 		{
 			
+			
+			if (DebugInfo)
+			{
+				float currentTime = clock.Restart().AsSeconds();
+				float fps = 1.0f / (currentTime);
+				lastTime = currentTime;
+				cursorPositionText.DisplayedString = $"{Mouse.GetPosition(Window).X}:{Mouse.GetPosition(Window).Y}";
+				Window.Draw(new Text($"{(int)fps}", font , 12));
+				Window.Draw(cursorPositionText);
+			}
 			
 			
 			
@@ -212,7 +231,7 @@ namespace Emix
 	        {
 		        Window.DispatchEvents();
 		        Window.Clear();
-		        Update(gameTime);
+		        Update();
 		        Window.Display();
 	        }
 	        OnExiting(this, EventArgs.Empty);

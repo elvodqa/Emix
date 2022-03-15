@@ -6,7 +6,7 @@ using SFML.Window;
 
 namespace Emix.Graphics.GUI
 {
-    public class BasicButton : Drawable
+    public class BasicButton : UIElement
     {
         public event EventHandler<EventArgs> Clicked;
 
@@ -91,35 +91,6 @@ namespace Emix.Graphics.GUI
             _hoverColor = hoverColor;
             _pressedColor = pressedColor;
         }
-
-
-        public void Update(Vector2f mousePosition)
-        {
-            _background.Position = Position;
-            _text.Position = new Vector2f(Position.X + 10, Position.Y + 10);
-            
-            
-            if (_background.GetGlobalBounds().Contains(mousePosition.X, mousePosition.Y))
-            {
-                if (Mouse.IsButtonPressed(Mouse.Button.Left))
-                {
-                    _isPressed = true;
-                    _background.FillColor = _pressedColor;
-                }
-                else
-                {
-                    _isPressed = false;
-                    _background.FillColor = _hoverColor;
-                }
-            }
-            else
-            {
-                _isPressed = false;
-                _background.FillColor = _backgroundColor;
-            }
-            
-            Console.WriteLine(mousePosition.X + " " +mousePosition.Y);
-        }
         
         
         public new virtual void Draw(GameWindow window)
@@ -151,7 +122,6 @@ namespace Emix.Graphics.GUI
                 _background.FillColor = _backgroundColor;
             }
             
-            Console.WriteLine(mousePosition.X + " " +mousePosition.Y);
         }
 
         public new virtual void Draw(RenderTarget target, RenderStates states, Vector2f mousePosition)
@@ -183,7 +153,6 @@ namespace Emix.Graphics.GUI
                 _background.FillColor = _backgroundColor;
             }
             
-            Console.WriteLine(mousePosition.X + " " +mousePosition.Y);
         }
 
         public void OnClick()
