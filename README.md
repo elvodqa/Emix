@@ -1,6 +1,6 @@
 # Emix: Visual Novel Engine
 
-An Another Virtual Novel Engine but powered by .NET 
+A Virtual Novel Engine powered by .NET 
 
 ## TODOS
 
