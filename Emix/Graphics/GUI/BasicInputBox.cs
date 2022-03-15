@@ -15,6 +15,8 @@ namespace Emix.Graphics.GUI
 
         public Text Text;
         public bool Focus = false;
+        private Clock clock;
+        public GameWindow Window;
         private readonly RectangleShape _background;
         private readonly Color _backgroundColor;
         private readonly Color _textColor;
@@ -24,15 +26,15 @@ namespace Emix.Graphics.GUI
         public Font font { get; set; }
         private bool _isPressed;
         
-        public BasicInputBox(string text)
+        public BasicInputBox(string text, GameWindow Window)
         {
             font = new Font(("Resources/arial.ttf"));
             Text = new Text(text, font);
             Text.CharacterSize = 20;
             Text.Color = Color.White;
             Text.Position = new Vector2f(10, 10);
-            
-            
+            clock = new Clock();
+            this.Window = Window;
             _background = new RectangleShape();
             _background.FillColor = Color.Black;
             _background.Position = Position;
@@ -43,10 +45,26 @@ namespace Emix.Graphics.GUI
             _textColor = Color.White;
             _hoverColor = new Color(192, 192, 192);
             _pressedColor = new Color(128, 128, 128);
+            Window.TextEntered += Window_TextEntered;
         }
+
+        private void Window_TextEntered(Object sender, TextEventArgs e)
+        {
+            if (Focus)
+            {
+       
+                Text.DisplayedString += e.Unicode;
+                
+            }
+        }   
+       
+        
+    
+        
 
         public new virtual void Draw(GameWindow window)
         {
+            Time dt = clock.Restart();
             //states.Transform *= Transform;
             var mousePosition = Mouse.GetPosition(window);
             window.Draw(_background, RenderStates.Default);
@@ -60,14 +78,14 @@ namespace Emix.Graphics.GUI
                 Focus = false;
             }
 
-            window.TextEntered += (sender, args) =>
+            
+
+            window.KeyPressed += (sender, args) =>
             {
                 if (Focus)
                 {
-                    Text.DisplayedString += args.Unicode;
+                    
                 }
-                
-                //Thread.Sleep(100);  
             };
                 
             

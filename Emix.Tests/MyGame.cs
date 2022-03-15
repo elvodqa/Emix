@@ -49,7 +49,7 @@ namespace Emix.Tests
             mainMenu.UIButtonLayer.Add(settingsButton);
             mainMenu.UIButtonLayer.Add(exitButton);
             
-            mainMenu.UIInputBoxLayer.Add(new BasicInputBox("Bruhh"));
+            mainMenu.UIInputBoxLayer.Add(new BasicInputBox("Bruhh", Window));
             
             base.Initialize();
         }
