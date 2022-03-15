@@ -1,3 +1,4 @@
+using Emix.Windowing;
 using SFML.Graphics;
 using SFML.System;
 
@@ -14,6 +15,11 @@ namespace Emix.Graphics
             Position = new Vector2f(0, 0);
         }
         
+        public Drawable() : base()
+        {
+            Position = new Vector2f(0, 0);
+        }
+        
         /*
         /// <summary>
         /// 
@@ -26,6 +32,18 @@ namespace Emix.Graphics
             target.Draw(this, states);
         }
         */
+        
+        public new virtual void Draw(RenderTarget target)
+        {
+            //states.Transform *= Transform;
+            base.Draw(target, RenderStates.Default);
+        }
+        
+        public new virtual void Draw(GameWindow target)
+        {
+            //states.Transform *= Transform;
+            base.Draw(target, RenderStates.Default);
+        }
         
         /// <summary>
         /// Set the width of the drawable

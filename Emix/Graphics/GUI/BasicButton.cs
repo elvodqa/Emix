@@ -6,7 +6,7 @@ using SFML.Window;
 
 namespace Emix.Graphics.GUI
 {
-    public class BasicButton : UIElement
+    public class BasicButton : Drawable
     {
         public event EventHandler<EventArgs> Clicked;
 
@@ -22,7 +22,7 @@ namespace Emix.Graphics.GUI
         
         
         public BasicButton(string text) 
-            : base(new Texture("Resources/button.png"))
+            : base()
         {
             font = new Font(("Resources/arial.ttf"));
             _text = new Text(text, font);
@@ -40,7 +40,9 @@ namespace Emix.Graphics.GUI
             _backgroundColor = Color.Black;
             _textColor = Color.White;
             _hoverColor = new Color(192, 192, 192);
-            _pressedColor = new Color(128, 128, 128);;
+            _pressedColor = new Color(128, 128, 128);
+
+            //Clicked = (sender, args) => { };
         }
         
         public BasicButton(string text, 
@@ -48,7 +50,7 @@ namespace Emix.Graphics.GUI
             Color textColor, 
             Color hoverColor, 
             Color pressedColor) 
-            : base(new Texture("Resources/button.png"))
+            : base()
         {
             _text = new Text(text, font);
             _text.CharacterSize = 20;
@@ -73,7 +75,7 @@ namespace Emix.Graphics.GUI
             Color textColor, 
             Color hoverColor, 
             Color pressedColor) 
-            : base(new Texture("Resources/button.png"))
+            : base()
         {
             _text = new Text(text, font);
             _text.CharacterSize = 20;
@@ -93,6 +95,7 @@ namespace Emix.Graphics.GUI
         }
         
         
+        
         public new virtual void Draw(GameWindow window)
         {
             //states.Transform *= Transform;
@@ -109,6 +112,7 @@ namespace Emix.Graphics.GUI
                 {
                     _isPressed = true;
                     _background.FillColor = _pressedColor;
+                    OnClick();
                 }
                 else
                 {
@@ -152,10 +156,9 @@ namespace Emix.Graphics.GUI
                 _isPressed = false;
                 _background.FillColor = _backgroundColor;
             }
-            
         }
 
-        public void OnClick()
+        private void OnClick()
         {
             Clicked?.Invoke(this, new EventArgs());
         }
