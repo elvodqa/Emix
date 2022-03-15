@@ -1,4 +1,4 @@
-# Emix
+# Emix: Visual Novel Engine
 
 An Another Virtual Novel Engine but powered by .NET 
 
