@@ -7,6 +7,7 @@ namespace Emix.Graphics.GUI
     public class Canvas : List<Drawable>
     {
         public List<BasicButton> UIButtonLayer { get; set; } = new List<BasicButton>();
+        public List<BasicInputBox> UIInputBoxLayer { get; set; } = new List<BasicInputBox>();
         public void Draw(GameWindow window)
         {
             foreach (Drawable element in this)
@@ -15,6 +16,11 @@ namespace Emix.Graphics.GUI
             }
 
             foreach (var uiElement in UIButtonLayer)
+            {
+                uiElement.Draw(window);
+            }
+            
+            foreach (var uiElement in UIInputBoxLayer)
             {
                 uiElement.Draw(window);
             }
