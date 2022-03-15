@@ -3,6 +3,7 @@ using System.Numerics;
 using Emix.Graphics.GUI;
 using Emix.Graphics.Primitives;
 using Emix.Math;
+using Emix.Windowing;
 using SFML.Graphics;
 using SFML.System;
 using SFML.Window;
@@ -14,10 +15,13 @@ namespace Emix.Tests
     {
         static void Main(string[] args)
         {
+            
             using (MyGame game = new MyGame())
             {
                 game.Run();
             }
+            
+            
         }
     }
 }

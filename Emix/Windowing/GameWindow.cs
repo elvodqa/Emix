@@ -45,6 +45,15 @@ namespace Emix.Windowing
                 }
             }
         }
+
+        /*public Color ClearColor
+        {
+            get
+            {
+                return 
+            }
+        }
+        */
         
         #endregion
         
@@ -56,7 +65,7 @@ namespace Emix.Windowing
 
         #region Protected Constructors
 
-        protected GameWindow(string title) 
+        public GameWindow(string title) 
             : base(new VideoMode(800, 600), title, Styles.Close)
         {
             _title = title;

@@ -9,12 +9,12 @@ using Drawable = Emix.Graphics.Drawable;
 
 namespace Emix
 {
-    public abstract class EmixScene : IDisposable    
+    public class EmixScene : IDisposable    
     {
 
         #region Public Properties
 
-
+		
         public GameWindow Window;
 
         #endregion
@@ -49,11 +49,15 @@ namespace Emix
         
         public EmixScene()
         {
+	        //Window = window;
             RunApplication = true;
-            Window = (GameWindow) new RenderWindow(
-	            new VideoMode( 800, 600), 
-	            "asd");
         }
+        
+        private void OnClosed(object sender, EventArgs e)
+		{
+			RunApplication = false;
+			Window.Close();
+		}
         
         #endregion
 
@@ -137,9 +141,9 @@ namespace Emix
 		protected virtual void Update(GameTime gameTime)
 		{
 			
-			Window.Clear(Color.Black);
-			Update(gameTime);
-			Window.Display();
+			
+			
+			
 		}
 
 		protected virtual void OnExiting(object sender, EventArgs args)
@@ -176,7 +180,9 @@ namespace Emix
 			{
 				Initialize();
 				hasInitialized = true;
+				Window.Closed += OnClosed;
 			}
+			
 			
 			RunLoop();
 			
@@ -199,14 +205,15 @@ namespace Emix
         }
         
         
-        
         private void RunLoop()
         {
+	        Window.SetVisible(true);
 	        while (RunApplication)
 	        {
-		        
+		        Window.DispatchEvents();
+		        Window.Clear();
 		        Update(gameTime);
-		       
+		        Window.Display();
 	        }
 	        OnExiting(this, EventArgs.Empty);
         }

@@ -1,12 +1,12 @@
-﻿namespace Emix.Tests
+﻿using Emix.Windowing;
+
+namespace Emix.Tests
 {
     public class MyGame : EmixScene
     {
-
         public MyGame()
-            : base()
         {
-            
+            Window = new GameWindow("Bruvkekw");
         }
         protected override void Initialize()
         {
