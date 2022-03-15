@@ -48,8 +48,9 @@ namespace Emix.Tests
             mainMenu.UIButtonLayer.Add(playButton);
             mainMenu.UIButtonLayer.Add(settingsButton);
             mainMenu.UIButtonLayer.Add(exitButton);
-            
-            mainMenu.UIInputBoxLayer.Add(new BasicInputBox("Bruhh", Window));
+            var bruhTextBox = new BasicInputBox("Bruh", Window);
+            bruhTextBox.Position = new Vector2f(400, 400);
+            mainMenu.UIInputBoxLayer.Add(bruhTextBox);
             
             base.Initialize();
         }

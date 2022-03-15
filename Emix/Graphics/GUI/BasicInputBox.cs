@@ -57,11 +57,7 @@ namespace Emix.Graphics.GUI
                 
             }
         }   
-       
         
-    
-        
-
         public new virtual void Draw(GameWindow window)
         {
             Time dt = clock.Restart();
@@ -72,22 +68,13 @@ namespace Emix.Graphics.GUI
             _background.Position = Position;
             Text.Position = new Vector2f(Position.X + 10, Position.Y + 10);
 
-            if (_background.GetGlobalBounds().Contains(mousePosition.X, mousePosition.Y) &&
+            if (!_background.GetGlobalBounds().Contains(mousePosition.X, mousePosition.Y) &&
                 Mouse.IsButtonPressed(Mouse.Button.Left))
             {
                 Focus = false;
+                Console.WriteLine("Focus False");
             }
 
-            
-
-            window.KeyPressed += (sender, args) =>
-            {
-                if (Focus)
-                {
-                    
-                }
-            };
-                
             
             if (_background.GetGlobalBounds().Contains(mousePosition.X, mousePosition.Y))
             {
@@ -96,17 +83,21 @@ namespace Emix.Graphics.GUI
                     _isPressed = true;
                     _background.FillColor = _pressedColor;
                     Focus = true;
+                    Console.WriteLine("Focus True");
                     OnClick();
                 }
                 else
                 {
                     _isPressed = false;
+                   
                     _background.FillColor = _hoverColor;
+                    
                 }
             }
             else
             {
                 _isPressed = false;
+                _background.FillColor = _hoverColor;
                 _background.FillColor = _backgroundColor;
             }
 
