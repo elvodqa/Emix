@@ -148,6 +148,8 @@ namespace Emix
 			Window.SetVerticalSyncEnabled(true);
 			Window.SetFramerateLimit(60);
 			Window.SetKeyRepeatEnabled(false);
+			Image icon = new Image("Resources/icon.png");
+			Window.SetIcon(icon.Size.X, icon.Size.Y, icon.Pixels);
 		}
 		
 		protected virtual void Update()

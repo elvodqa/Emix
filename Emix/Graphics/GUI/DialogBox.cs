@@ -36,17 +36,18 @@ namespace Emix.Graphics.GUI
             Dialog.Position = new Vector2f(22, this.window.Size.Y - (30 + DialogSize.Y));
             
             historyButton.Background.Size = new Vector2f(50, 15);
-            //historyButton.SetWidth(100);
             historyButton.Text.CharacterSize = 11;
             historyButton.Position = new Vector2f(20 + (Background.Size.X / 2) - 50, this.window.Size.Y - 20);
+           
             saveButton.Background.Size = new Vector2f(50, 15);
-            saveButton.Text.Position = saveButton.Position;
-            saveButton.Text.CharacterSize = 15;
+            saveButton.Text.CharacterSize = 11;
             saveButton.Position = new Vector2f(historyButton.Position.X + 50, this.window.Size.Y - 20);
+            saveButton.Text.Position = saveButton.Position;
+            
             loadButton.Background.Size = new Vector2f(50, 15);
-            loadButton.Text.Position = loadButton.Position;
-            loadButton.Text.CharacterSize = 15;
+            loadButton.Text.CharacterSize = 11;
             loadButton.Position = new Vector2f(saveButton.Position.X + 50, this.window.Size.Y - 20);
+            loadButton.Text.Position = loadButton.Position;
             
             optionList.Add(historyButton);
             optionList.Add(saveButton);

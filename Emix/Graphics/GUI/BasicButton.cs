@@ -18,6 +18,7 @@ namespace Emix.Graphics.GUI
         private readonly Color _pressedColor;
         public Font Font { get; set; }
         private bool _isPressed;
+        private bool allocatedText = true;
 
         
         
@@ -65,6 +66,7 @@ namespace Emix.Graphics.GUI
             _textColor = textColor;
             _hoverColor = hoverColor;
             _pressedColor = pressedColor;
+           
         }
         
         
@@ -100,8 +102,12 @@ namespace Emix.Graphics.GUI
             var mousePosition = Mouse.GetPosition(window);
             window.Draw(Background, RenderStates.Default);
             window.Draw(Text, RenderStates.Default);
+            
+         
             Background.Position = Position;
             Text.Position = new Vector2f(Position.X + 10, Position.Y + 10);
+                
+            
             
             
             if (Background.GetGlobalBounds().Contains(mousePosition.X, mousePosition.Y))
@@ -137,8 +143,11 @@ namespace Emix.Graphics.GUI
             
             target.Draw(Background, states);
             target.Draw(Text, states);
+            
+            
             Background.Position = Position;
             Text.Position = new Vector2f(Position.X + 10, Position.Y + 10);
+            
 
             if (Background.GetGlobalBounds().Contains(mousePosition.X, mousePosition.Y))
             {
