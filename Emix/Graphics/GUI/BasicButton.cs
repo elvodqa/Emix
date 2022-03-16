@@ -16,7 +16,7 @@ namespace Emix.Graphics.GUI
         private readonly Color _textColor;
         private readonly Color _hoverColor;
         private readonly Color _pressedColor;
-        public Font font { get; set; }
+        public Font Font { get; set; }
         private bool _isPressed;
 
         
@@ -24,10 +24,10 @@ namespace Emix.Graphics.GUI
         public BasicButton(string text) 
             : base()
         {
-            font = new Font(("Resources/arial.ttf"));
-            _text = new Text(text, font);
+            Font = new Font(("Resources/arial.ttf"));
+            _text = new Text(text, Font);
             _text.CharacterSize = 20;
-            _text.Color = Color.White;
+            _text.FillColor = Color.White;
             _text.Position = new Vector2f(10, 10);
             
 
@@ -41,8 +41,6 @@ namespace Emix.Graphics.GUI
             _textColor = Color.White;
             _hoverColor = new Color(192, 192, 192);
             _pressedColor = new Color(128, 128, 128);
-
-            //Clicked = (sender, args) => { };
         }
         
         public BasicButton(string text, 
@@ -52,11 +50,11 @@ namespace Emix.Graphics.GUI
             Color pressedColor) 
             : base()
         {
-            _text = new Text(text, font);
+            _text = new Text(text, Font);
             _text.CharacterSize = 20;
             _text.Color = textColor;
             _text.Position = new Vector2f(10, 10);
-            font = new Font(("Resources/arial.ttf"));
+            Font = new Font(("Resources/arial.ttf"));
 
             _background = new RectangleShape();
             _background.FillColor = backgroundColor;
@@ -112,7 +110,6 @@ namespace Emix.Graphics.GUI
                 {
                     _isPressed = true;
                     _background.FillColor = _pressedColor;
-                    OnClick();
                 }
                 else
                 {
@@ -126,6 +123,12 @@ namespace Emix.Graphics.GUI
                 _background.FillColor = _backgroundColor;
             }
             
+            if (_isPressed)
+            {
+                OnClick();
+                _isPressed = false;
+            }
+           
         }
 
         public new virtual void Draw(RenderTarget target, RenderStates states, Vector2f mousePosition)
@@ -156,6 +159,13 @@ namespace Emix.Graphics.GUI
                 _isPressed = false;
                 _background.FillColor = _backgroundColor;
             }
+
+            if (_isPressed)
+            {
+                OnClick();
+                _isPressed = false;
+            }
+            
         }
 
         private void OnClick()

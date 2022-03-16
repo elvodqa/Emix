@@ -48,9 +48,18 @@ namespace Emix.Tests
             mainMenu.UIButtonLayer.Add(playButton);
             mainMenu.UIButtonLayer.Add(settingsButton);
             mainMenu.UIButtonLayer.Add(exitButton);
-            var bruhTextBox = new BasicInputBox("Bruh", Window);
-            bruhTextBox.Position = new Vector2f(400, 400);
+            var bruhTextBox = new BasicInputBox("1ST", Window);
+            var bruhTextBox2 = new BasicInputBox("2ND", Window);
+            var enterYourName = new BasicText("Enter your name");
+            enterYourName.Text.CharacterSize = 20;
+            enterYourName.Text.Position = new Vector2f(20, 250);
+            enterYourName.Text.DisplayedString = "Username: ";
+            bruhTextBox.Position = new Vector2f(140, 250);
+            bruhTextBox2.Position = new Vector2f(400, 250);
             mainMenu.UIInputBoxLayer.Add(bruhTextBox);
+            mainMenu.UIInputBoxLayer.Add(bruhTextBox2);
+            mainMenu.UIBasicTextLayer.Add(enterYourName);
+            
             
             base.Initialize();
         }

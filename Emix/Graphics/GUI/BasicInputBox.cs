@@ -8,7 +8,7 @@ using SFML.Window;
 
 namespace Emix.Graphics.GUI
 {
-    public class BasicInputBox : Drawable
+    public class BasicInputBox : UIElement
     {
 
         public event EventHandler<EventArgs> Clicked;
@@ -52,8 +52,6 @@ namespace Emix.Graphics.GUI
         {
             if (Focus)
             {
-       
-                
                 if (e.Unicode == "\b" && Text.DisplayedString.Length > 0)
                 {
                     Text.DisplayedString = Text.DisplayedString.Remove(Text.DisplayedString.Length - 1);
@@ -107,7 +105,6 @@ namespace Emix.Graphics.GUI
                 _background.FillColor = _hoverColor;
                 _background.FillColor = _backgroundColor;
             }
-
             _background.Size = new Vector2f(Text.GetGlobalBounds().Width + 20, Text.GetGlobalBounds().Height + 20);
         }
         
