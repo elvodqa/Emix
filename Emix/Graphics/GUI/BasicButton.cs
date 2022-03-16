@@ -139,8 +139,7 @@ namespace Emix.Graphics.GUI
             target.Draw(Text, states);
             Background.Position = Position;
             Text.Position = new Vector2f(Position.X + 10, Position.Y + 10);
-            
-            
+
             if (Background.GetGlobalBounds().Contains(mousePosition.X, mousePosition.Y))
             {
                 if (Mouse.IsButtonPressed(Mouse.Button.Left))

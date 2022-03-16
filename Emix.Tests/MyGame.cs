@@ -12,12 +12,13 @@ namespace Emix.Tests
 {
     public class MyGame : EmixScene
     {
+        private Canvas mainMenu;
         private BasicButton playButton;
         private BasicButton loadButton;
         private BasicButton settingsButton;
         private BasicButton exitButton;
         private DialogBox _dialogBox;
-        private Canvas mainMenu;
+        
         
         
         public MyGame()
@@ -66,6 +67,7 @@ namespace Emix.Tests
             
             base.Initialize();
         }
+       
         
         private void NewButton_Clicked(object sender, EventArgs e)
         {
