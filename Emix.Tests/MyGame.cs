@@ -16,6 +16,7 @@ namespace Emix.Tests
         private BasicButton loadButton;
         private BasicButton settingsButton;
         private BasicButton exitButton;
+        private DialogBox _dialogBox;
         private Canvas mainMenu;
         
         
@@ -40,6 +41,7 @@ namespace Emix.Tests
             {
                 Console.WriteLine("Play Button clicked");
             };
+            
             mainMenu = new Canvas()
             {
                 new Drawable(new Texture("Resources/pre-small.png"))
@@ -59,7 +61,8 @@ namespace Emix.Tests
             mainMenu.UIInputBoxLayer.Add(bruhTextBox);
             mainMenu.UIInputBoxLayer.Add(bruhTextBox2);
             mainMenu.UIBasicTextLayer.Add(enterYourName);
-            
+
+            _dialogBox = new DialogBox(Window);
             
             base.Initialize();
         }
@@ -71,8 +74,8 @@ namespace Emix.Tests
 
         protected override void Update()
         {
-            mainMenu.Draw(Window);
-            
+            //mainMenu.Draw(Window);
+            _dialogBox.Draw();
             base.Update();
         }
     }

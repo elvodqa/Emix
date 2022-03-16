@@ -63,6 +63,7 @@ namespace Emix.Graphics
             Scale = new Vector2f(Scale.X, height / Texture.Size.Y);
         }
         
+        
         /// <summary>
         /// Set the positipn of the drawable
         /// </summary>

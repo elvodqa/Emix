@@ -10,8 +10,8 @@ namespace Emix.Graphics.GUI
     {
         public event EventHandler<EventArgs> Clicked;
 
-        private readonly Text _text;
-        private readonly RectangleShape _background;
+        public Text Text;
+        public RectangleShape Background;
         private readonly Color _backgroundColor;
         private readonly Color _textColor;
         private readonly Color _hoverColor;
@@ -25,18 +25,18 @@ namespace Emix.Graphics.GUI
             : base()
         {
             Font = new Font(("Resources/arial.ttf"));
-            _text = new Text(text, Font);
-            _text.CharacterSize = 20;
-            _text.FillColor = Color.White;
-            _text.Position = new Vector2f(10, 10);
+            Text = new Text(text, Font);
+            Text.CharacterSize = 20;
+            Text.FillColor = Color.White;
+            Text.Position = new Vector2f(10, 10);
             
 
-            _background = new RectangleShape();
-            _background.FillColor = Color.Black;
-            _background.Position = Position;
-            _background.Size = new Vector2f(_text.GetGlobalBounds().Width + 20, _text.GetGlobalBounds().Height + 20);
-            _background.OutlineColor = Color.White;
-            _background.OutlineThickness = 2;
+            Background = new RectangleShape();
+            Background.FillColor = Color.Black;
+            Background.Position = Position;
+            Background.Size = new Vector2f(Text.GetGlobalBounds().Width + 20, Text.GetGlobalBounds().Height + 20);
+            Background.OutlineColor = Color.White;
+            Background.OutlineThickness = 2;
             _backgroundColor = Color.Black;
             _textColor = Color.White;
             _hoverColor = new Color(192, 192, 192);
@@ -50,16 +50,16 @@ namespace Emix.Graphics.GUI
             Color pressedColor) 
             : base()
         {
-            _text = new Text(text, Font);
-            _text.CharacterSize = 20;
-            _text.Color = textColor;
-            _text.Position = new Vector2f(10, 10);
+            Text = new Text(text, Font);
+            Text.CharacterSize = 20;
+            Text.Color = textColor;
+            Text.Position = new Vector2f(10, 10);
             Font = new Font(("Resources/arial.ttf"));
 
-            _background = new RectangleShape();
-            _background.FillColor = backgroundColor;
-            _background.Position = Position;
-            _background.Size = new Vector2f(_text.GetGlobalBounds().Width + 20, _text.GetGlobalBounds().Height + 20);
+            Background = new RectangleShape();
+            Background.FillColor = backgroundColor;
+            Background.Position = Position;
+            Background.Size = new Vector2f(Text.GetGlobalBounds().Width + 20, Text.GetGlobalBounds().Height + 20);
             
             _backgroundColor = backgroundColor;
             _textColor = textColor;
@@ -75,16 +75,16 @@ namespace Emix.Graphics.GUI
             Color pressedColor) 
             : base()
         {
-            _text = new Text(text, font);
-            _text.CharacterSize = 20;
-            _text.Color = textColor;
-            _text.Position = new Vector2f(10, 10);
+            Text = new Text(text, font);
+            Text.CharacterSize = 20;
+            Text.Color = textColor;
+            Text.Position = new Vector2f(10, 10);
             //font = new Font(("Resources/arial.ttf"));
 
-            _background = new RectangleShape();
-            _background.FillColor = backgroundColor;
-            _background.Position = Position;
-            _background.Size = new Vector2f(_text.GetGlobalBounds().Width + 20, _text.GetGlobalBounds().Height + 20);
+            Background = new RectangleShape();
+            Background.FillColor = backgroundColor;
+            Background.Position = Position;
+            Background.Size = new Vector2f(Text.GetGlobalBounds().Width + 20, Text.GetGlobalBounds().Height + 20);
             
             _backgroundColor = backgroundColor;
             _textColor = textColor;
@@ -98,29 +98,29 @@ namespace Emix.Graphics.GUI
         {
             //states.Transform *= Transform;
             var mousePosition = Mouse.GetPosition(window);
-            window.Draw(_background, RenderStates.Default);
-            window.Draw(_text, RenderStates.Default);
-            _background.Position = Position;
-            _text.Position = new Vector2f(Position.X + 10, Position.Y + 10);
+            window.Draw(Background, RenderStates.Default);
+            window.Draw(Text, RenderStates.Default);
+            Background.Position = Position;
+            Text.Position = new Vector2f(Position.X + 10, Position.Y + 10);
             
             
-            if (_background.GetGlobalBounds().Contains(mousePosition.X, mousePosition.Y))
+            if (Background.GetGlobalBounds().Contains(mousePosition.X, mousePosition.Y))
             {
                 if (Mouse.IsButtonPressed(Mouse.Button.Left))
                 {
                     _isPressed = true;
-                    _background.FillColor = _pressedColor;
+                    Background.FillColor = _pressedColor;
                 }
                 else
                 {
                     _isPressed = false;
-                    _background.FillColor = _hoverColor;
+                    Background.FillColor = _hoverColor;
                 }
             }
             else
             {
                 _isPressed = false;
-                _background.FillColor = _backgroundColor;
+                Background.FillColor = _backgroundColor;
             }
             
             if (_isPressed)
@@ -135,29 +135,29 @@ namespace Emix.Graphics.GUI
         {
             //states.Transform *= Transform;
             
-            target.Draw(_background, states);
-            target.Draw(_text, states);
-            _background.Position = Position;
-            _text.Position = new Vector2f(Position.X + 10, Position.Y + 10);
+            target.Draw(Background, states);
+            target.Draw(Text, states);
+            Background.Position = Position;
+            Text.Position = new Vector2f(Position.X + 10, Position.Y + 10);
             
             
-            if (_background.GetGlobalBounds().Contains(mousePosition.X, mousePosition.Y))
+            if (Background.GetGlobalBounds().Contains(mousePosition.X, mousePosition.Y))
             {
                 if (Mouse.IsButtonPressed(Mouse.Button.Left))
                 {
                     _isPressed = true;
-                    _background.FillColor = _pressedColor;
+                    Background.FillColor = _pressedColor;
                 }
                 else
                 {
                     _isPressed = false;
-                    _background.FillColor = _hoverColor;
+                    Background.FillColor = _hoverColor;
                 }
             }
             else
             {
                 _isPressed = false;
-                _background.FillColor = _backgroundColor;
+                Background.FillColor = _backgroundColor;
             }
 
             if (_isPressed)
