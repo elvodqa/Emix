@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Emix
+﻿namespace Emix
 {
     public class Class1
     {

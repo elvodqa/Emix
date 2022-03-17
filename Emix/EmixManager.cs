@@ -1,6 +1,5 @@
 ﻿using System;
 using Emix.Windowing;
-using SFML.Window;
 
 namespace Emix
 {
@@ -10,15 +9,15 @@ namespace Emix
         {
             window.Close();
         }
-        
+
         public static void ShowRuntimeError(string title, string message)
         {
-            Console.WriteLine(  $"{title ?? ""}:\n{message ?? ""}");
+            Console.WriteLine($"{title ?? ""}:\n{message ?? ""}");
         }
 
         public static void ShowRuntimeError(string? eStackTrace)
         {
-            Console.WriteLine(  $"Error:\n{eStackTrace ?? ""}");
+            Console.WriteLine($"Error:\n{eStackTrace ?? ""}");
         }
     }
 }

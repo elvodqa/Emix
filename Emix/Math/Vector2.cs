@@ -10,7 +10,6 @@ namespace Emix.Math
 
         public T X { get; }
         public T Y { get; }
-
     }
 
     public struct Vector2f
@@ -24,7 +23,7 @@ namespace Emix.Math
         public float X { get; }
         public float Y { get; }
     }
-    
+
     public struct Vector2i
     {
         public Vector2i(int x, int y)
@@ -36,7 +35,7 @@ namespace Emix.Math
         public int X { get; }
         public int Y { get; }
     }
-    
+
     public struct Vector2d
     {
         public Vector2d(double x, double y)
@@ -48,5 +47,4 @@ namespace Emix.Math
         public double X { get; }
         public double Y { get; }
     }
-    
 }

@@ -6,23 +6,11 @@ namespace Emix
     {
         #region Public Properties
 
-        public Time TotalGameTime
-        {
-            get;
-            internal set;
-        }
+        public Time TotalGameTime { get; internal set; }
 
-        public Time ElapsedGameTime
-        {
-            get;
-            internal set;
-        }
+        public Time ElapsedGameTime { get; internal set; }
 
-        public bool IsRunningSlowly
-        {
-            get;
-            internal set;
-        }
+        public bool IsRunningSlowly { get; internal set; }
 
         #endregion
 
@@ -50,6 +38,5 @@ namespace Emix
         }
 
         #endregion
-                
     }
 }

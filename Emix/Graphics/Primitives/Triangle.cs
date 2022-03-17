@@ -1,4 +1,3 @@
-using Emix.Math;
 using SFML.Graphics;
 
 namespace Emix.Graphics.Primitives
@@ -6,7 +5,6 @@ namespace Emix.Graphics.Primitives
     public class Triangle : CircleShape
     {
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="height"></param>
         /// <param name="color"></param>
@@ -14,9 +12,8 @@ namespace Emix.Graphics.Primitives
         {
             FillColor = color;
         }
-        
+
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="height"></param>
         /// <param name="color"></param>
@@ -27,9 +24,8 @@ namespace Emix.Graphics.Primitives
             OutlineThickness = thickness;
             OutlineColor = color;
         }
-        
+
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="height"></param>
         /// <param name="color"></param>
@@ -41,22 +37,21 @@ namespace Emix.Graphics.Primitives
             OutlineThickness = thickness;
             OutlineColor = outlineColor;
         }
-        
+
         /// <summary>
-        /// 
         /// </summary>
         /// <param name="height"></param>
         /// <param name="color"></param>
         /// <param name="thickness"></param>
         /// <param name="outlineColor"></param>
         /// <param name="outlineThickness"></param>
-        public Triangle(float height, Color color, float thickness, Color outlineColor, float outlineThickness) : base(height / 2, 3)
+        public Triangle(float height, Color color, float thickness, Color outlineColor, float outlineThickness) : base(
+            height / 2, 3)
         {
             FillColor = color;
             OutlineThickness = thickness;
             OutlineColor = outlineColor;
             OutlineThickness = outlineThickness;
         }
-        
     }
 }
