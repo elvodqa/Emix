@@ -73,12 +73,12 @@ namespace Emix.Graphics.GUI
             Text.CharacterSize = 20;
             Text.Color = textColor;
             Text.Position = new Vector2f(10, 10);
-            
+
             Background = new RectangleShape();
             Background.FillColor = backgroundColor;
             Background.Position = Position;
             Background.Size = new Vector2f(Text.GetGlobalBounds().Width + 20, Text.GetGlobalBounds().Height + 20);
-            
+
             _backgroundColor = backgroundColor;
             _textColor = textColor;
             _hoverColor = hoverColor;
@@ -87,7 +87,7 @@ namespace Emix.Graphics.GUI
 
         public Font Font { get; set; }
         public event EventHandler<EventArgs> Clicked;
-        
+
         public new virtual void Draw(GameWindow window)
         {
             var mousePosition = Mouse.GetPosition(window);
@@ -128,7 +128,7 @@ namespace Emix.Graphics.GUI
             target.Draw(Text, states);
             Background.Position = Position;
             Text.Position = new Vector2f(Position.X + 10, Position.Y + 10);
-            
+
             if (Background.GetGlobalBounds().Contains(mousePosition.X, mousePosition.Y))
             {
                 if (Mouse.IsButtonPressed(Mouse.Button.Left))

@@ -13,8 +13,8 @@ namespace Emix.Graphics.GUI
         private readonly Color _hoverColor;
         private readonly Color _pressedColor;
         private readonly Color _textColor;
-        private bool _isPressed;
         private readonly Clock clock;
+        private bool _isPressed;
         public bool Focus;
 
         public Text Text;

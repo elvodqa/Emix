@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using Emix.Graphics;
 using Emix.Graphics.GUI;
 using Emix.Windowing;
 using SFML.Graphics;
 using SFML.System;
+using Drawable = Emix.Graphics.Drawable;
 
 namespace Emix.Tests
 {
@@ -14,8 +18,8 @@ namespace Emix.Tests
         private Canvas mainMenu;
         private BasicButton playButton;
         private BasicButton settingsButton;
-
-
+        public Character emir;
+        
         public MyGame()
         {
             Window = new GameWindow("Emix: Visual Novel Engine");
@@ -24,6 +28,7 @@ namespace Emix.Tests
 
         protected override void Initialize()
         {
+            base.Initialize();
             playButton = new BasicButton("Play");
             exitButton = new BasicButton("Exit");
             settingsButton = new BasicButton("Settings");
@@ -55,10 +60,8 @@ namespace Emix.Tests
             mainMenu.UIInputBoxLayer.Add(bruhTextBox);
             mainMenu.UIInputBoxLayer.Add(bruhTextBox2);
             mainMenu.UIBasicTextLayer.Add(enterYourName);
-
             _dialogBox = new DialogBox(Window);
-
-            base.Initialize();
+            emir = new Character("Emir", Window);
         }
 
 
@@ -70,7 +73,9 @@ namespace Emix.Tests
         protected override void Update()
         {
             //mainMenu.Draw(Window);
+            emir.Draw();
             _dialogBox.Draw();
+            
             base.Update();
         }
     }
