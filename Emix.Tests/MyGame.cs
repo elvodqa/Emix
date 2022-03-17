@@ -76,8 +76,8 @@ namespace Emix.Tests
 
         protected override void Update()
         {
-            //mainMenu.Draw(Window);
-            _dialogBox.Draw();
+            mainMenu.Draw(Window);
+            //_dialogBox.Draw();
             base.Update();
         }
     }

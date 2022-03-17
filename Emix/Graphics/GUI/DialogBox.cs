@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Numerics;
 using Emix.Graphics.Primitives;
 using Emix.Windowing;
 using SFML.Graphics;
@@ -57,6 +58,21 @@ namespace Emix.Graphics.GUI
 
         public new virtual void Draw()
         {
+            historyButton.Background.Size = new Vector2f(50, 15);
+            historyButton.Text.CharacterSize = 11;
+            historyButton.Position = new Vector2f(20 + (Background.Size.X / 2) - 50, this.window.Size.Y - 20);
+            historyButton.Text.Position = new Vector2f(historyButton.Position.X + 5, historyButton.Position.Y + 2);
+           
+            saveButton.Background.Size = new Vector2f(50, 15);
+            saveButton.Text.CharacterSize = 11;
+            saveButton.Position = new Vector2f(historyButton.Position.X + 50, this.window.Size.Y - 20);
+            saveButton.Text.Position = new Vector2f(saveButton.Position.X + 7, saveButton.Position.Y + 1);
+            
+            loadButton.Background.Size = new Vector2f(50, 15);
+            loadButton.Text.CharacterSize = 11;
+            loadButton.Position = new Vector2f(saveButton.Position.X + 50, this.window.Size.Y - 20);
+            loadButton.Text.Position = new Vector2f(loadButton.Position.X + 8, loadButton.Position.Y + 1);
+            
             Background.Draw(window, RenderStates.Default);
             Name.Draw(window, RenderStates.Default);
             Dialog.Draw(window, RenderStates.Default);
