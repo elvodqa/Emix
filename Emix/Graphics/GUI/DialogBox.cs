@@ -60,18 +60,18 @@ namespace Emix.Graphics.GUI
         {
             historyButton.Background.Size = new Vector2f(50, 15);
             historyButton.Text.CharacterSize = 11;
-            historyButton.Position = new Vector2f(20 + (Background.Size.X / 2) - 50, this.window.Size.Y - 20);
-            historyButton.Text.Position = new Vector2f(historyButton.Position.X + 5, historyButton.Position.Y + 2);
+            historyButton.Position = new Vector2f(20 + (Background.Size.X / 2) - 55, this.window.Size.Y - 20);
+            historyButton.Text.Position = new Vector2f(historyButton.Position.X + 8, historyButton.Position.Y + 2);
            
             saveButton.Background.Size = new Vector2f(50, 15);
             saveButton.Text.CharacterSize = 11;
-            saveButton.Position = new Vector2f(historyButton.Position.X + 50, this.window.Size.Y - 20);
-            saveButton.Text.Position = new Vector2f(saveButton.Position.X + 7, saveButton.Position.Y + 1);
+            saveButton.Position = new Vector2f(historyButton.Position.X + 55, this.window.Size.Y - 20);
+            saveButton.Text.Position = new Vector2f(saveButton.Position.X + 10, saveButton.Position.Y + 1);
             
             loadButton.Background.Size = new Vector2f(50, 15);
             loadButton.Text.CharacterSize = 11;
-            loadButton.Position = new Vector2f(saveButton.Position.X + 50, this.window.Size.Y - 20);
-            loadButton.Text.Position = new Vector2f(loadButton.Position.X + 8, loadButton.Position.Y + 1);
+            loadButton.Position = new Vector2f(saveButton.Position.X + 55, this.window.Size.Y - 20);
+            loadButton.Text.Position = new Vector2f(loadButton.Position.X + 12, loadButton.Position.Y + 1);
             
             Background.Draw(window, RenderStates.Default);
             Name.Draw(window, RenderStates.Default);

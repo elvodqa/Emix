@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Emix.Graphics;
 using Emix.Graphics.GUI;
 using Emix.Windowing;
@@ -76,8 +77,8 @@ namespace Emix.Tests
 
         protected override void Update()
         {
-            mainMenu.Draw(Window);
-            //_dialogBox.Draw();
+            //mainMenu.Draw(Window);
+            _dialogBox.Draw();
             base.Update();
         }
     }
