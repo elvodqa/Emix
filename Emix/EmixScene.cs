@@ -21,7 +21,7 @@ namespace Emix
 
         ~EmixScene()
         {
-            Dispose(false);
+                Dispose(false);
         }
 
         #endregion
@@ -164,7 +164,7 @@ namespace Emix
             cursorPositionText = new Text($"{Mouse.GetPosition(Window).X}:{Mouse.GetPosition(Window).Y}",
                 font, 12);
             cursorPositionText.Position = new Vector2f(0,
-                Window.Size.Y - cursorPositionText.GetLocalBounds().Height * 2);
+                Window.Size.Y - (cursorPositionText.GetLocalBounds().Height * 2));
             Window.SetVerticalSyncEnabled(true);
             Window.SetFramerateLimit(60);
             Window.SetKeyRepeatEnabled(false);

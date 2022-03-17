@@ -34,7 +34,7 @@ namespace Emix.Graphics.GUI
 
             historyButton.Background.Size = new Vector2f(50, 15);
             historyButton.Text.CharacterSize = 11;
-            historyButton.Position = new Vector2f(20 + Background.Size.X / 2 - 50, this.window.Size.Y - 20);
+            historyButton.Position = new Vector2f((Background.Size.X / 2) - 30, this.window.Size.Y - 20);
 
             saveButton.Background.Size = new Vector2f(50, 15);
             saveButton.Text.CharacterSize = 11;
@@ -59,7 +59,7 @@ namespace Emix.Graphics.GUI
         {
             historyButton.Background.Size = new Vector2f(50, 15);
             historyButton.Text.CharacterSize = 11;
-            historyButton.Position = new Vector2f(20 + Background.Size.X / 2 - 55, window.Size.Y - 20);
+            historyButton.Position = new Vector2f(20 + (Background.Size.X / 2 - 55), window.Size.Y - 20);
             historyButton.Text.Position = new Vector2f(historyButton.Position.X + 8, historyButton.Position.Y + 2);
 
             saveButton.Background.Size = new Vector2f(50, 15);
