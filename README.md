@@ -1,5 +1,5 @@
 # Emix: Visual Novel Engine
-
+[![.NET](https://github.com/elvodqa/Emix/actions/workflows/dotnet.yml/badge.svg)](https://github.com/elvodqa/Emix/actions/workflows/dotnet.yml)
 <p
    style = "text-align: left;"
    >A Visual Novel Engine powered by .NET </p>
