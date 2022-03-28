@@ -10,7 +10,7 @@
 ## TODOS
 
 <p>
-[WIP] GUI <br>
+[Done] Basic GUI <br>
 [WIP] Basic infrastructure <br>
 [HOPEFULLY] Release the 0.1v <br>
 </p>
