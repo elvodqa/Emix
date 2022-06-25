@@ -1,7 +1,10 @@
+using System;
 using System.Collections.Generic;
+using System.Text;
 using Emix.Windowing;
 using SFML.Graphics;
 using SFML.System;
+using Timer = System.Timers.Timer;
 
 namespace Emix.Graphics.GUI
 {
@@ -13,6 +16,11 @@ namespace Emix.Graphics.GUI
         private readonly List<BasicButton> optionList = new();
         private readonly BasicButton saveButton = new("Save");
         private readonly GameWindow window;
+
+        private Time elapsed_time;
+        private Clock r;
+        
+        private Time delta_time = Time.FromMilliseconds(100);
 
         public DialogBox(GameWindow window)
         {
@@ -54,6 +62,12 @@ namespace Emix.Graphics.GUI
         public RectangleShape Background { get; }
         public Text Name { get; }
         public Text Dialog { get; }
+        private bool UpdatingText = false;
+        private string originalText = "";
+        private StringBuilder displayBuilder;
+        private int currentDigit = 0;
+        private int maxDigit;
+        private Timer myTimer = new Timer();
 
         public virtual void Draw()
         {
@@ -74,9 +88,40 @@ namespace Emix.Graphics.GUI
 
             Background.Draw(window, RenderStates.Default);
             Name.Draw(window, RenderStates.Default);
+            
+            if (UpdatingText)
+            {
+                myTimer.Start();
+                if (displayBuilder.ToString() == originalText)
+                {
+                    UpdatingText = false;
+                }
+            }
+            
             Dialog.Draw(window, RenderStates.Default);
 
             foreach (var button in optionList) button.Draw(window);
+        }
+
+        public void ChangeText(string newDialog)
+        {
+            Dialog.DisplayedString = "";
+            originalText = newDialog;
+            displayBuilder = new StringBuilder(new String(' ', originalText.Length));
+            currentDigit = 0;
+            maxDigit = originalText.Length;
+            myTimer.Enabled = true;
+            myTimer.Interval = 50;
+            
+            myTimer.Elapsed += (sender, eventArgs) =>
+            {
+                displayBuilder[currentDigit] = originalText.ToCharArray()[currentDigit];
+                currentDigit++;
+                Console.WriteLine(displayBuilder.ToString());
+                Dialog.DisplayedString = displayBuilder.ToString();
+            };
+            
+            UpdatingText = true;
         }
     }
 }

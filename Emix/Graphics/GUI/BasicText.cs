@@ -10,11 +10,12 @@ namespace Emix.Graphics.GUI
         {
             Text = new Text(text, new Font("Resources/arial.ttf"));
             Text.Position = new Vector2f(0, 0);
-            Text.CharacterSize = 12;
+            Text.CharacterSize = Size;
         }
 
         public Vector2f Position { get; set; }
 
+        public uint Size { get; set; } = 12;
         public Text Text { get; set; }
 
         public new virtual void Draw(GameWindow window)

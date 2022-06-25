@@ -6,6 +6,7 @@ using Emix.Graphics.GUI;
 using Emix.Windowing;
 using SFML.Graphics;
 using SFML.System;
+using SFML.Window;
 using Drawable = Emix.Graphics.Drawable;
 
 namespace Emix.Tests
@@ -19,7 +20,16 @@ namespace Emix.Tests
         private BasicButton playButton;
         private BasicButton settingsButton;
         public Character emir;
-        
+
+        private string[] dialogs = new[]
+        {
+            "Glad to see you didn't run away on us. Hahaha!",
+            "Nah, don't worry.",
+            "This might be a little strange for me, but I at least keep my word."
+        };
+
+        private int currentDia = 0;
+
         public MyGame()
         {
             Window = new GameWindow("Emix: Visual Novel Engine");
@@ -62,12 +72,18 @@ namespace Emix.Tests
             mainMenu.UIBasicTextLayer.Add(enterYourName);
             _dialogBox = new DialogBox(Window);
             emir = new Character("Emir", Window);
+            Window.KeyPressed += NewButton_Clicked;
+
         }
 
 
-        private void NewButton_Clicked(object sender, EventArgs e)
+        private void NewButton_Clicked(object sender, KeyEventArgs arg)
         {
-            Console.WriteLine("New button clicked");
+            if (arg.Code == Keyboard.Key.Space)
+            {
+                _dialogBox.ChangeText(dialogs[currentDia]);
+                currentDia += 1;
+            }
         }
 
         protected override void Update()
