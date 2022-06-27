@@ -108,15 +108,14 @@ public class DialogBox : Drawable
         maxDigit = originalText.Length;
         myTimer.Enabled = true;
         myTimer.Interval = 50;
-
+        Console.WriteLine($"[{Global.ActiveSpeaker.Name}] : {originalText}");
         myTimer.Elapsed += (sender, eventArgs) =>
         {
             displayBuilder[currentDigit] = originalText.ToCharArray()[currentDigit];
             currentDigit++;
-            Console.WriteLine(displayBuilder.ToString());
             Dialog.DisplayedString = displayBuilder.ToString();
         };
-
+        
         UpdatingText = true;
     }
 }

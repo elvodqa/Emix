@@ -13,8 +13,8 @@ namespace Emix.Tests
         {
             Character emir = new Character("Emir", Window);
             SetActiveSpeaker(emir);
-            AddDialog("aaaaaaaaaaaa");
-            AddDialog("qweqweqwewqewqaaaaaaa");
+            AddDialog("hmm...............");
+            AddDialog("Hello Wazzup homie");
             base.Setup();
         }
     }
