@@ -14,13 +14,13 @@ namespace Emix
     public class EmixScene : IDisposable
     {
         #region Internal Variables
-
+        
         internal bool RunApplication;
         internal DialogBox _dialogBox;
-        internal int CurrentDialogIndex = 0;
+        private int CurrentDialogIndex = 0;
         
         #endregion
-        
+
         #region Destructor
 
         ~EmixScene()
@@ -29,7 +29,6 @@ namespace Emix
         }
 
         #endregion
-
 
         private void OnUnhandledException(
             object sender,
