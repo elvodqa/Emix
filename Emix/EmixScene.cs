@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Emix.Graphics;
+using Emix.Graphics.GUI;
 using Emix.Windowing;
 using SFML.Graphics;
 using SFML.System;
@@ -14,9 +16,11 @@ namespace Emix
         #region Internal Variables
 
         internal bool RunApplication;
-
+        internal DialogBox _dialogBox;
+        internal int CurrentDialogIndex = 0;
+        
         #endregion
-
+        
         #region Destructor
 
         ~EmixScene()
@@ -77,6 +81,16 @@ namespace Emix
 
         #endregion
 
+        public static void SetActiveSpeaker(Character character)
+        {
+            Global.ActiveSpeaker = character;
+            Global.ActiveSpeaker = character;
+            Global.ActiveSpeaker = character;
+        }
+        public static void AddDialog(string context)
+        {
+            Global.Dialogs.Add(new Dialog(context));
+        }
 
         #region Events
 
@@ -91,7 +105,7 @@ namespace Emix
 
         public EmixScene()
         {
-            //Window = window;
+            Window = Global.Window;
             RunApplication = true;
             clock = new Clock();
             GameTime = new GameTime(Time.Zero, Time.Zero);
@@ -159,7 +173,8 @@ namespace Emix
 
         #region Protected Methods
 
-        protected virtual void Initialize()
+        protected virtual void Setup(){}
+        private void Initialize()
         {
             cursorPositionText = new Text($"{Mouse.GetPosition(Window).X}:{Mouse.GetPosition(Window).Y}",
                 font, 12);
@@ -170,9 +185,24 @@ namespace Emix
             Window.SetKeyRepeatEnabled(false);
             var icon = new Image("Resources/icon.png");
             Window.SetIcon(icon.Size.X, icon.Size.Y, icon.Pixels);
+            _dialogBox = new DialogBox();
+            _dialogBox.ChangeText("");
+            Window.KeyPressed += (sender, args) =>
+            {
+                if (args.Code == Keyboard.Key.Space && CurrentDialogIndex < Global.Dialogs.Count)
+                {
+                    _dialogBox.Name.DisplayedString = Global.Dialogs[CurrentDialogIndex].Speaker;
+                   _dialogBox.ChangeText(Global.Dialogs[CurrentDialogIndex].Context);
+                   CurrentDialogIndex += 1;
+                }
+                else
+                {
+                    EmixManager.ShowRuntimeError("Error switching to next dialog", "Probably end of dialogs");
+                }
+            };
         }
-
-        protected virtual void Update()
+        
+        private void Update()
         {
             if (DebugInfo)
             {
@@ -184,6 +214,9 @@ namespace Emix
                 Window.Draw(new Text($"{(int) fps}", font, 12));
                 Window.Draw(cursorPositionText);
             }
+            
+            _dialogBox.Draw();
+            
         }
 
         protected virtual void OnExiting(object sender, EventArgs args)
@@ -209,6 +242,7 @@ namespace Emix
 
             if (!hasInitialized)
             {
+                Setup();
                 Initialize();
                 hasInitialized = true;
                 Window.Closed += OnClosed;

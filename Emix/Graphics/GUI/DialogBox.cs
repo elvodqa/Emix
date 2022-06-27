@@ -22,9 +22,9 @@ namespace Emix.Graphics.GUI
         
         private Time delta_time = Time.FromMilliseconds(100);
 
-        public DialogBox(GameWindow window)
+        public DialogBox()
         {
-            this.window = window;
+            this.window = Global.Window;
             DialogSize = new Vector2f(this.window.Size.X - 40, (this.window.Size.X - 40) / 6.5f);
             Background = new RectangleShape(DialogSize);
             Dialog = new Text("", new Font("Resources/arial.ttf"), 20);
@@ -33,10 +33,9 @@ namespace Emix.Graphics.GUI
             Background.OutlineThickness = 5;
             Background.OutlineColor = Color.White;
 
-            Name = new Text("Name", new Font("Resources/arial.ttf"), 20);
+            Name = new Text("", new Font("Resources/arial.ttf"), 20);
             Name.Position = new Vector2f(20, this.window.Size.Y - (60 + DialogSize.Y));
-            Dialog.DisplayedString =
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vitae fermentum erat\n Phasellus porta auctor massa vitae placerat. Aliquam et enim in\n dolor sodales egestas. Aliquam a elementum elit. \n Aenean lacinia scelerisque viverra. Curabitur aliquam ligula vitae massa\n egestas, eget vestibulum justo accumsan. Donec ac ligula ac nisi lobortis fini";
+            Dialog.DisplayedString = "";
             Dialog.CharacterSize = 20;
             Dialog.Position = new Vector2f(22, this.window.Size.Y - (30 + DialogSize.Y));
 
@@ -60,7 +59,7 @@ namespace Emix.Graphics.GUI
         }
 
         public RectangleShape Background { get; }
-        public Text Name { get; }
+        public Text Name { get; set; }
         public Text Dialog { get; }
         private bool UpdatingText = false;
         private string originalText = "";

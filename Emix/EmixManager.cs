@@ -1,4 +1,5 @@
 ﻿using System;
+using Emix.Graphics;
 using Emix.Windowing;
 
 namespace Emix
@@ -19,5 +20,6 @@ namespace Emix
         {
             Console.WriteLine($"Error:\n{eStackTrace ?? ""}");
         }
+        
     }
 }
