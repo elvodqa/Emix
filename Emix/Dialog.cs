@@ -1,11 +1,9 @@
-using Emix.Graphics;
-
 namespace Emix;
 
 public class Dialog
 {
-    public string Speaker;
     public string Context;
+    public string Speaker;
 
     public Dialog(string context)
     {

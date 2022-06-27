@@ -1,9 +1,8 @@
-namespace Emix.Math
+namespace Emix.Math;
+
+public enum Alignment
 {
-    public enum Alignment
-    {
-        Left,
-        Right,
-        Center
-    }
+    Left,
+    Right,
+    Center
 }

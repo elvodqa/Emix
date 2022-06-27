@@ -1,15 +1,14 @@
-namespace Emix.Math
+namespace Emix.Math;
+
+public enum Origin
 {
-    public enum Origin
-    {
-        TopLeft,
-        TopRight,
-        BottomLeft,
-        BottomRight,
-        Center,
-        Top,
-        Bottom,
-        Left,
-        Right
-    }
+    TopLeft,
+    TopRight,
+    BottomLeft,
+    BottomRight,
+    Center,
+    Top,
+    Bottom,
+    Left,
+    Right
 }

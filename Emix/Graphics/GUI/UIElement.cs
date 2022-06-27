@@ -1,6 +1,5 @@
-﻿namespace Emix.Graphics.GUI
+﻿namespace Emix.Graphics.GUI;
+
+public class UIElement : Drawable
 {
-    public class UIElement : Drawable
-    {
-    }
 }
