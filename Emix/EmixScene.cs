@@ -133,17 +133,6 @@ public class EmixScene : IDisposable
         if (!isDisposed)
         {
             if (disposing)
-                // Dispose loaded game components.
-                /*
-                    for (int i = 0; i < Components.Count; i += 1)
-                    {
-                        IDisposable disposable = Components[i] as IDisposable;
-                        if (disposable != null)
-                        {
-                            disposable.Dispose();
-                        }
-                    } */
-
                 if (Window != null)
                     EmixManager.DisposeWindow(Window);
 
