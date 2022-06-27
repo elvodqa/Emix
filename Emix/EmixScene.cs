@@ -192,6 +192,20 @@ public class EmixScene : IDisposable
                 EmixManager.ShowRuntimeError("Error switching to next dialog", "Probably end of dialogs");
             }
         };
+
+        Window.MouseButtonPressed += (sender, args) =>
+        {
+            if (args.Button == Mouse.Button.Left && CurrentDialogIndex < Global.Dialogs.Count)
+            {
+                _dialogBox.Name.DisplayedString = Global.Dialogs[CurrentDialogIndex].Speaker;
+                _dialogBox.ChangeText(Global.Dialogs[CurrentDialogIndex].Context);
+                CurrentDialogIndex += 1;
+            }
+            else
+            {
+                EmixManager.ShowRuntimeError("Error switching to next dialog", "Probably end of dialogs");
+            }
+        };
     }
 
     private void Update()
