@@ -206,7 +206,7 @@ public class EmixScene : IDisposable
             Window.Draw(new Text($"{(int)fps}", font, 12));
             Window.Draw(cursorPositionText);
         }
-
+        Global.ActiveSpeaker.States[Global.ActiveSpeaker.CurrentState].Draw(Global.Window);
         _dialogBox.Draw();
     }
 

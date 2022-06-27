@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Emix.Math;
 using Emix.Windowing;
 using SFML.Graphics;
@@ -27,12 +28,15 @@ public class Character
     public bool IsTalking { get; set; }
     public GameWindow Window { get; }
 
-    public void Say(string dialogue)
+    public Dictionary<string, Drawable> States = new Dictionary<string, Drawable>();
+    public string CurrentState;
+    
+    public void ChangeState(string state)
     {
-        Dialogue = dialogue;
-        IsTalking = true;
+        CurrentState = state;
+        Sprite = States[state];
     }
-
+    
     public virtual void Draw()
     {
         Sprite.Position = new SFML.System.Vector2f(70, 80);

@@ -1,4 +1,6 @@
 ﻿using Emix.Graphics;
+using SFML.Graphics;
+using Drawable = Emix.Graphics.Drawable;
 
 namespace Emix.Tests
 {
@@ -12,6 +14,8 @@ namespace Emix.Tests
         protected override void Setup()
         {
             Character emir = new Character("Emir", Window);
+            emir.States["normal"] = new Drawable(new Texture("Resources/football_player.png"));
+            emir.ChangeState("normal");
             SetActiveSpeaker(emir);
             AddDialog("hmm...............");
             AddDialog("Hello Wazzup homie");
