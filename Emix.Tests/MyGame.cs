@@ -17,8 +17,10 @@ namespace Emix.Tests
             emir.States["normal"] = new Drawable(new Texture("Resources/football_player.png"));
             emir.ChangeState("normal");
             SetActiveSpeaker(emir);
-            AddDialog("hmm...............");
-            AddDialog("Hello Wazzup homie");
+
+            AddDialog("No matter how many times you play. It's all the same.");
+            AddDialog("It would be really, really easy to kill myself right now. But that would mean I don't get to talk to you anymore.");
+            
             base.Setup();
         }
     }

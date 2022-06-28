@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Timers;
 using Emix.Windowing;
@@ -102,7 +103,29 @@ public class DialogBox : Drawable
     public void ChangeText(string newDialog)
     {
         Dialog.DisplayedString = "";
-        originalText = newDialog;
+        var words = newDialog.Split(' ').ToList();
+        StringBuilder asd = new StringBuilder();
+        asd.Append(' ');
+        int i = 0;
+        foreach (string word in words)
+        {
+            if (!(i % 10 == 0 && i != 0))
+            {
+                asd.Append(word);
+                asd.Append(' ');
+                i++;
+            }
+            else
+            {
+                string temp = word;
+                asd.Append(temp + "\n");
+                asd.Append(' ');
+                i++;
+            }
+            
+        }
+
+        originalText = asd.ToString();
         displayBuilder = new StringBuilder(new string(' ', originalText.Length));
         currentDigit = 0;
         maxDigit = originalText.Length;
